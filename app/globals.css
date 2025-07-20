@@ -1,0 +1,166 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #00875a; /* Verde principal */
+  --color-accent: #9ccc65;
+  --color-bright: #cddc39;
+  --color-bg: #f1f8e9;
+  --color-white: #ffffff;
+  --color-text: #1b5e20;
+  --color-dark: #2e7d32;
+  --radius: 16px;
+  --shadow: 0 8px 25px rgba(0, 133, 90, 0.15);
+  --shadow-hover: 0 12px 35px rgba(0, 133, 90, 0.25);
+  --font: "Segoe UI", Roboto, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font);
+  background: linear-gradient(135deg, var(--color-bg) 0%, #e8f5e8 100%);
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+/* Contenedor principal */
+.section {
+  padding: 80px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Títulos */
+.section-title {
+  font-size: 2.5rem;
+  color: var(--color-primary);
+  margin-bottom: 24px;
+  font-weight: 800;
+}
+
+/* Gradientes vibrantes */
+.gradient-bg {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 50%, var(--color-bright) 100%);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Cards con efectos vibrantes */
+.cards {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 24px;
+  margin-bottom: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.card {
+  background: linear-gradient(145deg, var(--color-white) 0%, #fafafa 100%);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 32px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid transparent;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--color-accent);
+}
+
+/* Header principal */
+.app-header {
+  background: linear-gradient(90deg, var(--color-white) 0%, var(--color-bg) 100%);
+  border-bottom: 3px solid var(--color-accent);
+  backdrop-filter: blur(10px);
+}
+
+/* Botones vibrantes */
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+  color: white;
+  border: none;
+  padding: 16px 32px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-bright) 100%);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--color-primary);
+  border: 3px solid var(--color-primary);
+  padding: 16px 32px;
+  border-radius: var(--radius);
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.btn-outline:hover {
+  background: var(--color-primary);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+  border-color: var(--color-accent);
+}
+
+/* Efectos de pulso para elementos importantes */
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(0, 133, 90, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(0, 133, 90, 0.6);
+  }
+}
+
+.pulse-effect {
+  animation: pulse-glow 2s infinite;
+}
+
+/* Sombras mejoradas */
+.shadow-3xl {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .section {
+    padding: 60px 20px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
